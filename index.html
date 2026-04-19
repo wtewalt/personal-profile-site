@@ -35,14 +35,14 @@
       --accent: #bd93f9;
       --bar-gradient: linear-gradient(to right, #f1fa8c, #bd93f9);
     }
-    body.theme-monokai {
-      --bg: #272822;
-      --surface: #3e3d32;
-      --border: #49483e;
-      --text: #f8f8f2;
-      --text-muted: #75715e;
-      --accent: #a6e22e;
-      --bar-gradient: linear-gradient(to right, #f92672, #a6e22e);
+    body.theme-catppuccin-mocha {
+      --bg: #1e1e2e;
+      --surface: #313244;
+      --border: #45475a;
+      --text: #cdd6f4;
+      --text-muted: #6c7086;
+      --accent: #cba6f7;
+      --bar-gradient: linear-gradient(to right, #89dceb, #cba6f7);
     }
 
     /* ── Base ── */
@@ -381,12 +381,12 @@
       color: var(--text-muted);
       margin-bottom: 0.5rem;
     }
-    .bar-item { margin-bottom: 0.6rem; }
+    .bar-item  { margin-bottom: 0.6rem; }
     .bar-label { display: block; font-size: 0.825rem; color: var(--text); margin-bottom: 0.2rem; }
-    .bar-track { background: var(--border); border-radius: 4px; height: 20px; }
-    .bar-fill  { background: var(--bar-gradient); border-radius: 4px; height: 100%; transition: width 0.3s;
-                 display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; min-width: 24px; }
-    .bar-score { font-size: 0.7rem; font-weight: 700; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.4); line-height: 1; }
+    .bar-row   { display: flex; align-items: center; gap: 0.5rem; }
+    .bar-track { flex: 1; background: var(--border); border-radius: 4px; height: 12px; }
+    .bar-fill  { background: var(--bar-gradient); border-radius: 4px; height: 100%; transition: width 0.3s; }
+    .bar-score { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); min-width: 1.25rem; text-align: right; }
 
     /* ── Footer ── */
     footer {
@@ -429,7 +429,7 @@
       </optgroup>
       <optgroup label="Dark">
         <option value="theme-dracula">Dracula</option>
-        <option value="theme-monokai">Monokai</option>
+        <option value="theme-catppuccin-mocha">Catppuccin Mocha</option>
       </optgroup>
     </select>
   </div>
@@ -675,51 +675,51 @@
       <div class="skills-grid">
         <div class="skill-group">
           <h4>Programming</h4>
-          <div class="bar-item"><span class="bar-label">Python</span><div class="bar-track"><div class="bar-fill" style="width:90%"><span class="bar-score">9</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Go</span><div class="bar-track"><div class="bar-fill" style="width:60%"><span class="bar-score">6</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">SQL</span><div class="bar-track"><div class="bar-fill" style="width:100%"><span class="bar-score">10</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">JavaScript / React</span><div class="bar-track"><div class="bar-fill" style="width:70%"><span class="bar-score">7</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Nix</span><div class="bar-track"><div class="bar-fill" style="width:70%"><span class="bar-score">7</span></div></div></div>
+          <div class="bar-item"><span class="bar-label">Python</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">Go</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div><span class="bar-score">6</span></div></div>
+          <div class="bar-item"><span class="bar-label">SQL</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-score">10</span></div></div>
+          <div class="bar-item"><span class="bar-label">JavaScript / React</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
+          <div class="bar-item"><span class="bar-label">Nix</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
         </div>
         <div class="skill-group">
           <h4>Leadership</h4>
-          <div class="bar-item"><span class="bar-label">Communication</span><div class="bar-track"><div class="bar-fill" style="width:90%"><span class="bar-score">9</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Decision-Making</span><div class="bar-track"><div class="bar-fill" style="width:100%"><span class="bar-score">10</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Strategic Planning</span><div class="bar-track"><div class="bar-fill" style="width:90%"><span class="bar-score">9</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Creativity</span><div class="bar-track"><div class="bar-fill" style="width:90%"><span class="bar-score">9</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Coaching</span><div class="bar-track"><div class="bar-fill" style="width:90%"><span class="bar-score">9</span></div></div></div>
+          <div class="bar-item"><span class="bar-label">Communication</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">Decision-Making</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-score">10</span></div></div>
+          <div class="bar-item"><span class="bar-label">Strategic Planning</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">Creativity</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">Coaching</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
         </div>
         <div class="skill-group">
           <h4>Data Engineering</h4>
-          <div class="bar-item"><span class="bar-label">Docker</span><div class="bar-track"><div class="bar-fill" style="width:70%"><span class="bar-score">7</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">CI/CD</span><div class="bar-track"><div class="bar-fill" style="width:90%"><span class="bar-score">9</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">dbt / SQLMesh / Airflow</span><div class="bar-track"><div class="bar-fill" style="width:70%"><span class="bar-score">7</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">APIs</span><div class="bar-track"><div class="bar-fill" style="width:80%"><span class="bar-score">8</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Terraform (IaC)</span><div class="bar-track"><div class="bar-fill" style="width:80%"><span class="bar-score">8</span></div></div></div>
+          <div class="bar-item"><span class="bar-label">Docker</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
+          <div class="bar-item"><span class="bar-label">CI/CD</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">dbt / SQLMesh / Airflow</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
+          <div class="bar-item"><span class="bar-label">APIs</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
+          <div class="bar-item"><span class="bar-label">Terraform (IaC)</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
         </div>
         <div class="skill-group">
           <h4>Cloud</h4>
-          <div class="bar-item"><span class="bar-label">Serverless Compute</span><div class="bar-track"><div class="bar-fill" style="width:90%"><span class="bar-score">9</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">IAM</span><div class="bar-track"><div class="bar-fill" style="width:80%"><span class="bar-score">8</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Secret Management</span><div class="bar-track"><div class="bar-fill" style="width:100%"><span class="bar-score">10</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Google Cloud</span><div class="bar-track"><div class="bar-fill" style="width:90%"><span class="bar-score">9</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">AWS</span><div class="bar-track"><div class="bar-fill" style="width:60%"><span class="bar-score">6</span></div></div></div>
+          <div class="bar-item"><span class="bar-label">Serverless Compute</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">IAM</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
+          <div class="bar-item"><span class="bar-label">Secret Management</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-score">10</span></div></div>
+          <div class="bar-item"><span class="bar-label">Google Cloud</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">AWS</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div><span class="bar-score">6</span></div></div>
         </div>
         <div class="skill-group">
           <h4>Data Science / Analytics</h4>
-          <div class="bar-item"><span class="bar-label">Optimization</span><div class="bar-track"><div class="bar-fill" style="width:80%"><span class="bar-score">8</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Predictive Modeling</span><div class="bar-track"><div class="bar-fill" style="width:80%"><span class="bar-score">8</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">ML &amp; NLP</span><div class="bar-track"><div class="bar-fill" style="width:70%"><span class="bar-score">7</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Business Intelligence</span><div class="bar-track"><div class="bar-fill" style="width:100%"><span class="bar-score">10</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Data Modeling &amp; Processing</span><div class="bar-track"><div class="bar-fill" style="width:90%"><span class="bar-score">9</span></div></div></div>
+          <div class="bar-item"><span class="bar-label">Optimization</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
+          <div class="bar-item"><span class="bar-label">Predictive Modeling</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
+          <div class="bar-item"><span class="bar-label">ML &amp; NLP</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
+          <div class="bar-item"><span class="bar-label">Business Intelligence</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-score">10</span></div></div>
+          <div class="bar-item"><span class="bar-label">Data Modeling &amp; Processing</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
         </div>
         <div class="skill-group">
           <h4>AI</h4>
-          <div class="bar-item"><span class="bar-label">MCP</span><div class="bar-track"><div class="bar-fill" style="width:70%"><span class="bar-score">7</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Prompt Engineering</span><div class="bar-track"><div class="bar-fill" style="width:90%"><span class="bar-score">9</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Tool Proficiency</span><div class="bar-track"><div class="bar-fill" style="width:80%"><span class="bar-score">8</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">LLM Integration</span><div class="bar-track"><div class="bar-fill" style="width:70%"><span class="bar-score">7</span></div></div></div>
-          <div class="bar-item"><span class="bar-label">Governance</span><div class="bar-track"><div class="bar-fill" style="width:80%"><span class="bar-score">8</span></div></div></div>
+          <div class="bar-item"><span class="bar-label">MCP</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
+          <div class="bar-item"><span class="bar-label">Prompt Engineering</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">Tool Proficiency</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
+          <div class="bar-item"><span class="bar-label">LLM Integration</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
+          <div class="bar-item"><span class="bar-label">Governance</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
         </div>
       </div>
     </section>
@@ -747,7 +747,7 @@
   }
 
   // ── Theme ──
-  const THEMES = ['theme-github-light','theme-tokyonight-day','theme-dracula','theme-monokai'];
+  const THEMES = ['theme-github-light','theme-tokyonight-day','theme-dracula','theme-catppuccin-mocha'];
   function setTheme(name) {
     document.body.classList.remove(...THEMES);
     document.body.classList.add(name);
