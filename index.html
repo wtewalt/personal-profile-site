@@ -15,6 +15,7 @@
       --text: #24292f;
       --text-muted: #57606a;
       --accent: #0969da;
+      --bar-gradient: linear-gradient(to right, #cae8ff, #0550ae);
     }
     body.theme-tokyonight-day {
       --bg: #e1e2e7;
@@ -23,6 +24,7 @@
       --text: #3760bf;
       --text-muted: #6172b0;
       --accent: #2496fe;
+      --bar-gradient: linear-gradient(to right, #b3e5fc, #0d47a1);
     }
     body.theme-dracula {
       --bg: #282a36;
@@ -31,14 +33,16 @@
       --text: #f8f8f2;
       --text-muted: #6272a4;
       --accent: #bd93f9;
+      --bar-gradient: linear-gradient(to right, #f1fa8c, #bd93f9);
     }
-    body.theme-monokai {
-      --bg: #272822;
-      --surface: #3e3d32;
-      --border: #49483e;
-      --text: #f8f8f2;
-      --text-muted: #75715e;
-      --accent: #a6e22e;
+    body.theme-catppuccin-mocha {
+      --bg: #1e1e2e;
+      --surface: #313244;
+      --border: #45475a;
+      --text: #cdd6f4;
+      --text-muted: #6c7086;
+      --accent: #cba6f7;
+      --bar-gradient: linear-gradient(to right, #89dceb, #cba6f7);
     }
 
     /* ── Base ── */
@@ -363,8 +367,11 @@
 
     .skills-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
+    }
+    @media (max-width: 700px) {
+      .skills-grid { grid-template-columns: 1fr; }
     }
     .skill-group h4 {
       font-size: 0.85rem;
@@ -374,20 +381,12 @@
       color: var(--text-muted);
       margin-bottom: 0.5rem;
     }
-    .skill-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem;
-    }
-    .skill-pill {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 0.2rem 0.65rem;
-      font-size: 0.825rem;
-      color: var(--text);
-      transition: background 0.2s, border-color 0.2s;
-    }
+    .bar-item  { margin-bottom: 0.6rem; }
+    .bar-label { display: block; font-size: 0.825rem; color: var(--text); margin-bottom: 0.2rem; }
+    .bar-row   { display: flex; align-items: center; gap: 0.5rem; }
+    .bar-track { flex: 1; background: var(--border); border-radius: 4px; height: 12px; }
+    .bar-fill  { background: var(--bar-gradient); border-radius: 4px; height: 100%; transition: width 0.3s; }
+    .bar-score { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); min-width: 1.25rem; text-align: right; }
 
     /* ── Footer ── */
     footer {
@@ -430,7 +429,7 @@
       </optgroup>
       <optgroup label="Dark">
         <option value="theme-dracula">Dracula</option>
-        <option value="theme-monokai">Monokai</option>
+        <option value="theme-catppuccin-mocha">Catppuccin Mocha</option>
       </optgroup>
     </select>
   </div>
@@ -479,7 +478,7 @@
       </div>
 
       <p class="bio">
-        Senior data and analytics leader with 10+ years of experience building production data infrastructure, ML systems, and AI-powered tools. Has led teams and initiatives spanning data engineering, data science, and full-stack software development across agency, startup, and enterprise environments. Builds things end-to-end: from Airflow pipelines and medallion architectures to recommendation systems, web apps, and LLM integrations. Currently targeting senior leadership roles in Data Engineering, Software Development, or Data.
+        Senior data and analytics leader with 10+ years of experience building production data infrastructure, ML systems, and AI-powered tools. Has led teams and initiatives spanning data engineering, data science, and full-stack software development across agency, startup, and enterprise environments. Builds things end-to-end: from Airflow pipelines and medallion architectures to recommendation systems, web apps, and LLM integrations. Currently targeting senior leadership roles in Data Engineering, Software Development, or DevOps.
       </p>
 
       <div class="callout">
@@ -622,7 +621,7 @@
             <span class="duration-badge">3 yr</span>
           </div>
           <div class="tags"><span class="tag">Software Engineering</span></div>
-          <p class="card-desc">Full-stack app in Django + Next.js for hosting internal data science tools; integrated with internal and external APIs.</p>
+          <p class="card-desc">Full-stack app in Django + React for hosting internal data science tools; integrated with internal and external APIs.</p>
         </div>
 
         <div class="card">
@@ -676,89 +675,51 @@
       <div class="skills-grid">
         <div class="skill-group">
           <h4>Programming</h4>
-          <div class="skill-pills">
-            <span class="skill-pill">Python</span>
-            <span class="skill-pill">Go</span>
-            <span class="skill-pill">SQL</span>
-            <span class="skill-pill">JavaScript</span>
-            <span class="skill-pill">HCL (Terraform)</span>
-            <span class="skill-pill">Nix</span>
-          </div>
+          <div class="bar-item"><span class="bar-label">Python</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">Go</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div><span class="bar-score">6</span></div></div>
+          <div class="bar-item"><span class="bar-label">SQL</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-score">10</span></div></div>
+          <div class="bar-item"><span class="bar-label">JavaScript / React</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
+          <div class="bar-item"><span class="bar-label">Nix</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
         </div>
         <div class="skill-group">
           <h4>Leadership</h4>
-          <div class="skill-pills">
-            <span class="skill-pill">Communication</span>
-            <span class="skill-pill">Conflict Resolution</span>
-            <span class="skill-pill">Decision-Making</span>
-            <span class="skill-pill">Strategic Planning</span>
-          </div>
+          <div class="bar-item"><span class="bar-label">Communication</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">Decision-Making</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
+          <div class="bar-item"><span class="bar-label">Strategic Planning</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">Creativity</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-score">10</span></div></div>
+          <div class="bar-item"><span class="bar-label">Coaching</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
         </div>
         <div class="skill-group">
           <h4>Data Engineering</h4>
-          <div class="skill-pills">
-            <span class="skill-pill">Git</span>
-            <span class="skill-pill">Containers (Docker)</span>
-            <span class="skill-pill">Testing &amp; Debugging</span>
-            <span class="skill-pill">CI/CD</span>
-            <span class="skill-pill">Apache Airflow</span>
-            <span class="skill-pill">ETLs</span>
-            <span class="skill-pill">API Development</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <h4>Frameworks</h4>
-          <div class="skill-pills">
-            <span class="skill-pill">Flask</span>
-            <span class="skill-pill">FastAPI</span>
-            <span class="skill-pill">React</span>
-          </div>
+          <div class="bar-item"><span class="bar-label">Docker</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
+          <div class="bar-item"><span class="bar-label">CI/CD</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">dbt / SQLMesh / Airflow</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
+          <div class="bar-item"><span class="bar-label">APIs</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
+          <div class="bar-item"><span class="bar-label">Terraform (IaC)</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
         </div>
         <div class="skill-group">
           <h4>Cloud</h4>
-          <div class="skill-pills">
-            <span class="skill-pill">Serverless Compute</span>
-            <span class="skill-pill">S3 &amp; Data Lake</span>
-            <span class="skill-pill">IAM</span>
-            <span class="skill-pill">Secret Management</span>
-            <span class="skill-pill">API Gateway</span>
-          </div>
+          <div class="bar-item"><span class="bar-label">Serverless Compute</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">IAM</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
+          <div class="bar-item"><span class="bar-label">Secret Management</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-score">10</span></div></div>
+          <div class="bar-item"><span class="bar-label">Google Cloud</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">AWS</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div><span class="bar-score">6</span></div></div>
         </div>
         <div class="skill-group">
-          <h4>Data Analytics</h4>
-          <div class="skill-pills">
-            <span class="skill-pill">Visualization</span>
-            <span class="skill-pill">Power BI</span>
-            <span class="skill-pill">Tableau</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <h4>Data Science</h4>
-          <div class="skill-pills">
-            <span class="skill-pill">Optimization</span>
-            <span class="skill-pill">Forecasting</span>
-            <span class="skill-pill">NLP</span>
-            <span class="skill-pill">ML</span>
-            <span class="skill-pill">Media Attribution</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <h4>Databases</h4>
-          <div class="skill-pills">
-            <span class="skill-pill">BigQuery</span>
-            <span class="skill-pill">Redshift</span>
-            <span class="skill-pill">Athena</span>
-            <span class="skill-pill">PostgreSQL</span>
-          </div>
+          <h4>Data Science / Analytics</h4>
+          <div class="bar-item"><span class="bar-label">Optimization</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
+          <div class="bar-item"><span class="bar-label">Predictive Modeling</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
+          <div class="bar-item"><span class="bar-label">ML &amp; NLP</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
+          <div class="bar-item"><span class="bar-label">Business Intelligence</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-score">10</span></div></div>
+          <div class="bar-item"><span class="bar-label">Data Modeling &amp; Processing</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
         </div>
         <div class="skill-group">
           <h4>AI</h4>
-          <div class="skill-pills">
-            <span class="skill-pill">MCP</span>
-            <span class="skill-pill">Prompt Engineering</span>
-            <span class="skill-pill">Tooling</span>
-            <span class="skill-pill">LLM Integration</span>
-          </div>
+          <div class="bar-item"><span class="bar-label">MCP</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
+          <div class="bar-item"><span class="bar-label">Prompt Engineering</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-score">9</span></div></div>
+          <div class="bar-item"><span class="bar-label">Tool Proficiency</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
+          <div class="bar-item"><span class="bar-label">LLM Integration</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-score">7</span></div></div>
+          <div class="bar-item"><span class="bar-label">Governance</span><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-score">8</span></div></div>
         </div>
       </div>
     </section>
@@ -786,7 +747,7 @@
   }
 
   // ── Theme ──
-  const THEMES = ['theme-github-light','theme-tokyonight-day','theme-dracula','theme-monokai'];
+  const THEMES = ['theme-github-light','theme-tokyonight-day','theme-dracula','theme-catppuccin-mocha'];
   function setTheme(name) {
     document.body.classList.remove(...THEMES);
     document.body.classList.add(name);
@@ -799,8 +760,8 @@
 
   // ── Chart.js ──
   const skillsData = {
-    labels: ['Programming','Leadership','Data Engineering','Frameworks','Cloud','Data Analytics','Data Science','Databases','AI'],
-    scores: [8, 10, 9, 7, 8, 10, 8, 9, 8]
+    labels: ['Programming','Leadership','Data Engineering','Cloud','Data Science / Analytics','AI'],
+    scores: [8, 10, 9, 8, 8, 8]
   };
 
   let skillsChart = null;
